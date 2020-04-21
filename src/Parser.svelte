@@ -1,7 +1,7 @@
 <script>
-  export let type = undefined;
-  export let tokens = undefined;
-  export let renderers;
+  export let type = undefined
+  export let tokens = undefined
+  export let renderers
 </script>
 
 {#if !type}

@@ -1,6 +1,6 @@
 <script context="module">
-  import marked from 'marked';
-  import Renderer from './Renderer.svelte';
+  import marked from 'marked'
+  import Parser from './Parser.svelte'
   import {
     Heading,
     Paragraph,
@@ -22,8 +22,7 @@
     Html,
     Blockquote,
     Code,
-  } from './renderers';
-  const lexer = new marked.Lexer();
+  } from './renderers'
   const defaultRenderers = {
     heading: Heading,
     paragraph: Paragraph,
@@ -46,13 +45,34 @@
     blockquote: Blockquote,
     code: Code,
   }
+  const defaultOptions = {
+    baseUrl: null,
+    breaks: false,
+    gfm: true,
+    headerIds: true,
+    headerPrefix: '',
+    highlight: null,
+    langPrefix: 'language-',
+    mangle: true,
+    pedantic: false,
+    renderer: null,
+    sanitize: false,
+    sanitizer: null,
+    silent: false,
+    smartLists: false,
+    smartypants: false,
+    tokenizer: null,
+    xhtml: false
+  }
 </script>
 
 <script>
-  export let source = '';
+  export let source = ''
   export let renderers = {}
-  const tokens = lexer.lex(source);
-  const combinedRenderers = { ...defaultRenderers, ...renderers };
+  export let options = {}
+  const lexer = new marked.Lexer({...defaultOptions, ...options })
+  const tokens = lexer.lex(source)
+  const combinedRenderers = { ...defaultRenderers, ...renderers }
 </script>
 
-<Renderer {tokens} renderers={combinedRenderers} />
+<Parser {tokens} renderers={combinedRenderers} />

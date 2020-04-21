@@ -1,6 +1,6 @@
 <script>
-  export let header;
-  export let align;
+  export let header
+  export let align
 </script>
 
 {#if header}

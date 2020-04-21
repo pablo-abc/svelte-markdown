@@ -1,6 +1,6 @@
 <script>
-  export let depth;
-  export let raw;
+  export let depth
+  export let raw
 </script>
 
 {#if depth === 1}

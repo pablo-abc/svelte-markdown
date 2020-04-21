@@ -1,12 +1,12 @@
-import analyze from 'rollup-plugin-analyzer';
-import bundleSize from 'rollup-plugin-bundle-size';
-import svelte from 'rollup-plugin-svelte';
-import resolve from '@rollup/plugin-node-resolve';
-import commonjs from '@rollup/plugin-commonjs';
-import { terser } from 'rollup-plugin-terser';
-import pkg from './package.json';
+import analyze from 'rollup-plugin-analyzer'
+import bundleSize from 'rollup-plugin-bundle-size'
+import svelte from 'rollup-plugin-svelte'
+import resolve from '@rollup/plugin-node-resolve'
+import commonjs from '@rollup/plugin-commonjs'
+import { terser } from 'rollup-plugin-terser'
+import pkg from './package.json'
 
-const production = !process.env.ROLLUP_WATCH;
+const production = !process.env.ROLLUP_WATCH
 
 export default {
   input: 'src/index.js',
@@ -48,4 +48,4 @@ export default {
   watch: {
     clearScreen: false
   }
-};
+}

@@ -1,6 +1,6 @@
 <script>
-  export let ordered;
-  export let start;
+  export let ordered
+  export let start
 </script>
 
 {#if ordered}
