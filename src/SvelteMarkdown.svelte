@@ -50,9 +50,10 @@
 </script>
 
 <script>
-  export let body = '';
-  const tokens = lexer.lex(body);
-  const renderers = defaultRenderers;
+  export let source = '';
+  export let renderers = {}
+  const tokens = lexer.lex(source);
+  const combinedRenderers = { ...defaultRenderers, ...renderers };
 </script>
 
-<Renderer {tokens} {renderers} />
+<Renderer {tokens} renderers={combinedRenderers} />
