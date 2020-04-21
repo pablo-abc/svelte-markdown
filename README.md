@@ -83,7 +83,32 @@ Just like with React Markdown, this package doesn't use `{@html ...}` unless you
 As of now there are only two options:
 
 * `source` - *string* The Markdown source to be parsed.
-* `renderers` - *object* An object where the keys represent a node type and the value is a Svelte component. This object will be merged with the default renderers. For now you can check the default renderers in the source code at `src/renderers`.
+* `renderers` - *object* An object where the keys represent a node type and the value is a Svelte component. This object will be merged with the default renderers. For now you can check how the default renderers are written in the source code at `src/renderers`.
+
+## Available renderers
+
+These would be the property names expected by the `renderers` option.
+
+- `text` - Text rendered inside of other elements, such as paragraphs
+- `paragraph` - Paragraph (`<p>`)
+- `em` - Emphasis (`<em>`)
+- `strong` - Strong/bold (`<strong>`)
+- `hr` - Horizontal rule / thematic break (`<hr>`)
+- `blockquote` - Block quote (`<blockquote>`)
+- `del` - Deleted/strike-through (`<del>`)
+- `link` - Link (`<a>`)
+- `image` - Image (`<img>`)
+- `table` - Table (`<table>`)
+- `tablehead` - Table head (`<thead>`)
+- `tablebody` - Table body (`<tbody>`)
+- `tablerow` - Table row (`<tr>`)
+- `tablecell` - Table cell (`<td>`/`<th>`)
+- `list` - List (`<ul>`/`<ol>`)
+- `listitem` - List item (`<li>`)
+- `heading` - Heading (`<h1>`-`<h6>`)
+- `codespan` - Inline code (`<code>`)
+- `code` - Block of code (`<pre><code>`)
+- `html` - HTML node
 
 ## Disclaimer
 
