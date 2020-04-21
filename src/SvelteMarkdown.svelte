@@ -46,7 +46,6 @@
     blockquote: Blockquote,
     code: Code,
   }
-  const renderers = defaultRenderers;
 </script>
 
 <script>
