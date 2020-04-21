@@ -2,7 +2,6 @@
   export let type = undefined;
   export let tokens = undefined;
   export let renderers;
-  console.log(type);
 </script>
 
 {#if !type}
