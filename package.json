@@ -1,22 +1,32 @@
 {
-  "name": "svelte-app",
-  "version": "1.0.0",
+  "name": "svelte-markdown",
+  "version": "0.0.1",
+  "main": "dist/sveltemarkdown.js",
+  "module": "dist/sveltemarkdown.es.js",
+  "jsnext:main": "dist/sveltemarkdown.es.js",
+  "svelte": "src/index.js",
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
-    "build": "rollup -c",
-    "dev": "rollup -c -w",
-    "start": "sirv public"
+    "build": "rollup -c"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "11.0.2",
     "@rollup/plugin-node-resolve": "^7.0.0",
     "rollup": "^1.20.0",
-    "rollup-plugin-livereload": "^1.0.0",
+    "rollup-plugin-analyzer": "^3.2.2",
+    "rollup-plugin-bundle-size": "^1.0.3",
     "rollup-plugin-svelte": "^5.0.3",
     "rollup-plugin-terser": "^5.1.2",
-    "svelte": "^3.0.0"
+    "svelte": "^3.0.0",
+    "sirv-cli": "^0.4.4"
   },
   "dependencies": {
-    "marked": "^1.0.0",
-    "sirv-cli": "^0.4.4"
+    "marked": "^1.0.0"
+  },
+  "peerDependencies": {
+    "svelte": "^3.0.0"
   }
 }
