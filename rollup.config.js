@@ -46,6 +46,6 @@ export default {
     production && bundleSize(),
   ],
   watch: {
-    clearScreen: false
-  }
+    clearScreen: false,
+  },
 }
