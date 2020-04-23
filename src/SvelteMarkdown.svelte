@@ -62,7 +62,7 @@
     smartLists: false,
     smartypants: false,
     tokenizer: null,
-    xhtml: false
+    xhtml: false,
   }
 </script>
 
@@ -70,7 +70,7 @@
   export let source = ''
   export let renderers = {}
   export let options = {}
-  const lexer = new marked.Lexer({...defaultOptions, ...options })
+  const lexer = new marked.Lexer({ ...defaultOptions, ...options })
   const tokens = lexer.lex(source)
   const combinedRenderers = { ...defaultRenderers, ...renderers }
 </script>
