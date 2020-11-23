@@ -1,6 +1,6 @@
 # Svelte Markdown
 
-A markdown parser that renders into Svelte Components. Inspired by [ReactMarkdown](https://github.com/remarkjs/react-markdown) and probably really inefficient.
+A markdown parser that renders into Svelte Components. Inspired by [ReactMarkdown](https://github.com/remarkjs/react-markdown).
 
 ## Installation
 
@@ -83,7 +83,8 @@ Just like with React Markdown, this package doesn't use `{@html ...}` unless you
 As of now there are only two options:
 
 * `source` - *string* The Markdown source to be parsed.
-* `renderers` - *object* An object where the keys represent a node type and the value is a Svelte component. This object will be merged with the default renderers. For now you can check how the default renderers are written in the source code at `src/renderers`.
+* `renderers` - *object (optional)* An object where the keys represent a node type and the value is a Svelte component. This object will be merged with the default renderers. For now you can check how the default renderers are written in the source code at `src/renderers`.
+* `options` - *object (optional)* An object containing [options for Marked](https://marked.js.org/using_advanced#options)
 
 ## Available renderers
 
@@ -109,10 +110,6 @@ These would be the property names expected by the `renderers` option.
 - `codespan` - Inline code (`<code>`)
 - `code` - Block of code (`<pre><code>`)
 - `html` - HTML node
-
-## Disclaimer
-
-I've literally only worked on this for like 10 hours as of writing the readme. It's not optimized, probably inefficient and still not so configurable. It doesn't yet provide a way to sanitize HTML.
 
 ## Developing
 
