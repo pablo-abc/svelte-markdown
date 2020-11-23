@@ -23,7 +23,7 @@ If you're using Sapper you might need to install it as a dev dependency.
 ```html
 <script>
   import SvelteMarkdown from 'svelte-markdown'
-  const source = '
+  const source = `
   # This is a header
 
 This is a paragraph.
@@ -37,7 +37,7 @@ This is a paragraph.
 
 | And this is | A table |
 |-------------|---------|
-| With two    | columns |'
+| With two    | columns |`
 </script>
 
 <SvelteMarkdown {source} />
