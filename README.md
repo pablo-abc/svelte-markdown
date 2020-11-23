@@ -1,6 +1,6 @@
 # Svelte Markdown
 
-A markdown parser that renders into Svelte Components. Inspired by ReactMarkdown and probably really inefficient.
+A markdown parser that renders into Svelte Components. Inspired by [ReactMarkdown](https://github.com/remarkjs/react-markdown) and probably really inefficient.
 
 ## Installation
 
@@ -135,3 +135,9 @@ $ yarn link svelte-markdown
 And then import it like in the example above.
 
 As of now the only external dependency of this project is `marked`.
+
+## Related
+
+- [ReactMarkdown](https://github.com/remarkjs/react-markdown) - React library to render markdown using React components. Inspiration for this library.
+- [Svelte](https://svelte.dev) - JavaScript front-end framework.
+- [Marked](https://marked.js.org/) - Markdown parser
