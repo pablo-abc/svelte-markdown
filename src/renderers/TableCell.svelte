@@ -4,7 +4,7 @@
 </script>
 
 {#if header}
-  <th><slot></slot></th>
+  <th {align}><slot></slot></th>
 {:else}
-  <td><slot></slot></td>
+  <td {align}><slot></slot></td>
 {/if}
