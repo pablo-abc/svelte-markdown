@@ -113,7 +113,7 @@ These would be the property names expected by the `renderers` option.
 
 ## Developing
 
-As of now there is no tests on this project, and the only way to test it is to try it is to create another Svelte app and link this to it.
+Some tests have been added to the `tests` folder. You can clone this repo and create another svelte app and link it to this repo to try modifying it.
 
 You can clone this repo and do the following:
 

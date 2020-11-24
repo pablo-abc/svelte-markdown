@@ -1,5 +1,6 @@
 <script context="module">
-  import marked from 'marked'
+  import * as mark from 'marked'
+  const marked = mark.default || mark
   import Parser from './Parser.svelte'
   import {
     Heading,
