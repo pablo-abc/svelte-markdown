@@ -37,7 +37,7 @@
     "svelte-jester": "^1.1.5"
   },
   "dependencies": {
-    "marked": "^1.2.5"
+    "marked": "^2.0.0"
   },
   "peerDependencies": {
     "svelte": "^3.0.0"
