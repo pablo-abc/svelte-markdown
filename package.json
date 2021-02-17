@@ -1,6 +1,6 @@
 {
   "name": "svelte-markdown",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "main": "dist/sveltemarkdown.js",
   "module": "dist/sveltemarkdown.es.js",
   "jsnext:main": "dist/sveltemarkdown.es.js",
