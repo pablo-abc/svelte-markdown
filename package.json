@@ -1,14 +1,11 @@
 {
   "name": "svelte-markdown",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "dist/sveltemarkdown.js",
   "module": "dist/sveltemarkdown.es.js",
   "jsnext:main": "dist/sveltemarkdown.es.js",
   "svelte": "src/index.js",
-  "files": [
-    "dist",
-    "src"
-  ],
+  "files": ["dist", "src"],
   "license": "MIT",
   "scripts": {
     "build": "rollup -c",
@@ -48,12 +45,7 @@
       "^.+\\.js$": "babel-jest",
       "^.+\\.svelte$": "svelte-jester"
     },
-    "setupFilesAfterEnv": [
-      "@testing-library/jest-dom/extend-expect"
-    ],
-    "moduleFileExtensions": [
-      "js",
-      "svelte"
-    ]
+    "setupFilesAfterEnv": ["@testing-library/jest-dom/extend-expect"],
+    "moduleFileExtensions": ["js", "svelte"]
   }
 }
