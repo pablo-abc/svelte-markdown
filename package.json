@@ -27,6 +27,7 @@
     "eslint": "^7.20.0",
     "eslint-plugin-svelte3": "^3.1.0",
     "jest": "^26.6.3",
+    "prettier": "^2.2.1",
     "rollup": "^2.39.0",
     "rollup-plugin-analyzer": "^4.0.0",
     "rollup-plugin-bundle-size": "^1.0.3",
