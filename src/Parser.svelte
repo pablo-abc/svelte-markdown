@@ -44,7 +44,7 @@
     {:else if type === 'list'}
       <svelte:component this={renderers.list} {...$$restProps}>
         {#each $$restProps.items as item}
-          <svelte:component this={renderers.listitem} {...$$restProps}>
+          <svelte:component this={renderers.listitem} {...item}>
             <svelte:self tokens={item.tokens} {renderers} />
           </svelte:component>
         {/each}
@@ -54,7 +54,7 @@
         {#if tokens}
           <svelte:self {tokens} {renderers} />
         {:else}
-          {$$restProps.text}
+          {$$restProps.raw}
         {/if}
       </svelte:component>
     {/if}
