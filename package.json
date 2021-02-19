@@ -1,5 +1,6 @@
 {
   "name": "svelte-markdown",
+  "description": "A markdown renderer for Svelte",
   "version": "0.1.2",
   "main": "dist/sveltemarkdown.js",
   "module": "dist/sveltemarkdown.es.js",
