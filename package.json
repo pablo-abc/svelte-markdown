@@ -1,13 +1,15 @@
 {
   "name": "svelte-markdown",
   "description": "A markdown renderer for Svelte",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "main": "dist/sveltemarkdown.js",
   "module": "dist/sveltemarkdown.es.js",
   "jsnext:main": "dist/sveltemarkdown.es.js",
   "svelte": "src/index.js",
   "files": ["dist", "src"],
   "license": "MIT",
+  "repository": "github:pablo-abc/svelte-markdown",
+  "homepage": "https://github.com/pablo-abc/svelte-markdown",
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
