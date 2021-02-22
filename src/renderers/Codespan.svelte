@@ -2,4 +2,4 @@
   export let raw
 </script>
 
-<codespan>{raw.replace(/`/g, '')}</codespan>
+<code>{raw.replace(/`/g, '')}</code>
