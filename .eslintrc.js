@@ -1,20 +1,18 @@
 module.exports = {
   parserOptions: {
     ecmaVersion: 2019,
-    sourceType: 'module'
+    sourceType: 'module',
   },
   env: {
     es6: true,
-    browser: true
+    browser: true,
   },
-  plugins: [
-    'svelte3'
-  ],
+  plugins: ['svelte3'],
   overrides: [
     {
       files: ['**/*.svelte'],
-      processor: 'svelte3/svelte3'
-    }
+      processor: 'svelte3/svelte3',
+    },
   ],
   rules: {
     semi: ['warn', 'never'],
@@ -38,9 +36,12 @@ module.exports = {
     'no-duplicate-imports': ['error'],
     'no-var': ['error'],
     'prefer-const': ['warn'],
-    'no-unused-vars': ['warn', {
-      argsIgnorePattern: '^_',
-      ignoreRestSiblings: true,
-    }],
+    'no-unused-vars': [
+      'warn',
+      {
+        argsIgnorePattern: '^_',
+        ignoreRestSiblings: true,
+      },
+    ],
   },
 };
