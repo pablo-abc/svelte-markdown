@@ -85,7 +85,7 @@ Just like with React Markdown, this package doesn't use `{@html ...}` unless you
 
 ## Options
 
-As of now there are only two options:
+The SvelteMarkdown component accepts the following options:
 
 * `source` - *string* The Markdown source to be parsed.
 * `renderers` - *object (optional)* An object where the keys represent a node type and the value is a Svelte component. This object will be merged with the default renderers. For now you can check how the default renderers are written in the source code at `src/renderers`.
