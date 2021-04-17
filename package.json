@@ -49,6 +49,9 @@
       "^.+\\.svelte$": "svelte-jester"
     },
     "setupFilesAfterEnv": ["@testing-library/jest-dom/extend-expect"],
-    "moduleFileExtensions": ["js", "svelte"]
+    "moduleFileExtensions": ["js", "svelte"],
+    "moduleNameMapper": {
+      "marked/lib/marked.esm.js": "marked"
+    }
   }
 }

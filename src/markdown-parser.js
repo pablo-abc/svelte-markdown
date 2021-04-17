@@ -1,4 +1,4 @@
-import marked from 'marked'
+import marked from 'marked/lib/marked.esm.js'
 import {
   Heading,
   Paragraph,
