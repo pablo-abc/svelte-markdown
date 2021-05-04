@@ -42,16 +42,16 @@
           {/each}
         </svelte:component>
       </svelte:component>
-    {:else if type === 'list' && ordered}
+    {:else if type === 'list'}
       {#if ordered}
-      <svelte:component this={renderers.list} {ordered} {...$$restProps}>
-        {#each $$restProps.items as item}
-          <svelte:component this={renderers.orderedlistitem || renderers.listitem} {...item}>
-            <svelte:self tokens={item.tokens} {renderers} />
-          </svelte:component>
-        {/each}
-      </svelte:component>
-        {:else}
+        <svelte:component this={renderers.list} {ordered} {...$$restProps}>
+          {#each $$restProps.items as item}
+            <svelte:component this={renderers.orderedlistitem || renderers.listitem} {...item}>
+              <svelte:self tokens={item.tokens} {renderers} />
+            </svelte:component>
+          {/each}
+        </svelte:component>
+      {:else}
         <svelte:component this={renderers.list} {ordered} {...$$restProps}>
           {#each $$restProps.items as item}
             <svelte:component this={renderers.unorderedlistitem || renderers.listitem} {...item}>
@@ -59,7 +59,7 @@
             </svelte:component>
           {/each}
         </svelte:component>
-        {/if}
+      {/if}
     {:else}
       <svelte:component this={renderers[type]} {...$$restProps}>
         {#if tokens}
