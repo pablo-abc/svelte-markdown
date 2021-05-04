@@ -1,6 +1,7 @@
 <script>
   export let type = undefined
   export let tokens = undefined
+  export let ordered = false
   export let renderers
 </script>
 
@@ -41,14 +42,24 @@
           {/each}
         </svelte:component>
       </svelte:component>
-    {:else if type === 'list'}
-      <svelte:component this={renderers.list} {...$$restProps}>
+    {:else if type === 'list' && ordered}
+      {#if ordered}
+      <svelte:component this={renderers.list} {ordered} {...$$restProps}>
         {#each $$restProps.items as item}
-          <svelte:component this={renderers.listitem} {...item}>
+          <svelte:component this={renderers.orderedlistitem} {...item}>
             <svelte:self tokens={item.tokens} {renderers} />
           </svelte:component>
         {/each}
       </svelte:component>
+        {:else}
+        <svelte:component this={renderers.list} {ordered} {...$$restProps}>
+          {#each $$restProps.items as item}
+            <svelte:component this={renderers.unorderedlistitem} {...item}>
+              <svelte:self tokens={item.tokens} {renderers}/>
+            </svelte:component>
+          {/each}
+        </svelte:component>
+        {/if}
     {:else}
       <svelte:component this={renderers[type]} {...$$restProps}>
         {#if tokens}
