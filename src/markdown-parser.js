@@ -38,6 +38,8 @@ export const defaultRenderers = {
   tablerow: TableRow,
   tablecell: TableCell,
   list: List,
+  orderedlistitem: null,
+  unorderedlistitem: null,
   listitem: ListItem,
   hr: Hr,
   html: Html,

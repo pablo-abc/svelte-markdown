@@ -116,6 +116,30 @@ These would be the property names expected by the `renderers` option.
 - `code` - Block of code (`<pre><code>`)
 - `html` - HTML node
 
+### Optional List Renderers
+
+For fine detail styling of lists, it can be useful to differentiate between ordered and un-ordered lists.
+If either key is missing, the default `listitem` will be used. There are two
+optional keys in the `renderers` option which can provide this:
+
+- `orderedlistitem` - A list item appearing inside an ordered list
+- `unorderedlistitem` A list item appearing inside an un-ordered list
+
+As an example, if we have an `orderedlistitem`:
+
+```sveltehtml
+<style>
+    li::marker{
+        color: blue;
+    }
+</style>
+
+<li><slot></slot></li>
+```
+
+Then numbers at the start of ordered list items would be colored blue. Bullets at the start of unordered list items
+would remain the default text color.
+
 ## Developing
 
 Some tests have been added to the `tests` folder. You can clone this repo and create another svelte app and link it to this repo to try modifying it.
