@@ -1,7 +1,7 @@
 import type { MarkedExtension as MarkedConfig, Tokens } from 'marked'
 import type { SvelteComponentTyped } from 'svelte'
 
-export type MarkedRendererProps<
+type MarkedRendererProps<
   T extends { type: string; raw: string; text?: string }
 > = Omit<T, 'type'>
 
