@@ -6,7 +6,10 @@
   "module": "dist/sveltemarkdown.es.js",
   "jsnext:main": "dist/sveltemarkdown.es.js",
   "svelte": "src/index.js",
-  "files": ["dist", "src"],
+  "files": [
+    "dist",
+    "src"
+  ],
   "license": "MIT",
   "repository": "github:pablo-abc/svelte-markdown",
   "homepage": "https://github.com/pablo-abc/svelte-markdown",
@@ -38,18 +41,25 @@
     "svelte-jester": "^1.3.0"
   },
   "dependencies": {
+    "@types/marked": "^2.0.0",
     "marked": "^2.0.0"
   },
   "peerDependencies": {
     "svelte": "^3.0.0"
   },
+  "types": "./types/index.d.ts",
   "jest": {
     "transform": {
       "^.+\\.js$": "babel-jest",
       "^.+\\.svelte$": "svelte-jester"
     },
-    "setupFilesAfterEnv": ["@testing-library/jest-dom/extend-expect"],
-    "moduleFileExtensions": ["js", "svelte"],
+    "setupFilesAfterEnv": [
+      "@testing-library/jest-dom/extend-expect"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "svelte"
+    ],
     "moduleNameMapper": {
       "marked/lib/marked.esm.js": "marked"
     }
