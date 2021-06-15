@@ -1,15 +1,12 @@
 {
   "name": "svelte-markdown",
   "description": "A markdown renderer for Svelte",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "main": "dist/sveltemarkdown.js",
   "module": "dist/sveltemarkdown.es.js",
   "jsnext:main": "dist/sveltemarkdown.es.js",
   "svelte": "src/index.js",
-  "files": [
-    "dist",
-    "src"
-  ],
+  "files": ["dist", "src"],
   "license": "MIT",
   "repository": "github:pablo-abc/svelte-markdown",
   "homepage": "https://github.com/pablo-abc/svelte-markdown",
@@ -53,13 +50,8 @@
       "^.+\\.js$": "babel-jest",
       "^.+\\.svelte$": "svelte-jester"
     },
-    "setupFilesAfterEnv": [
-      "@testing-library/jest-dom/extend-expect"
-    ],
-    "moduleFileExtensions": [
-      "js",
-      "svelte"
-    ],
+    "setupFilesAfterEnv": ["@testing-library/jest-dom/extend-expect"],
+    "moduleFileExtensions": ["js", "svelte"],
     "moduleNameMapper": {
       "marked/lib/marked.esm.js": "marked"
     }
