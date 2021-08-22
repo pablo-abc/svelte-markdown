@@ -5,11 +5,14 @@
   export let source = ''
   export let renderers = {}
   export let options = {}
+  export let isInline = false;
+
   let lexer;
   let tokens;
   $: {
     lexer = new Lexer({ ...defaultOptions, ...options })
-    tokens = lexer.lex(source)
+    
+    tokens = isInline?lexer.inlineTokens(source):lexer.lex(source)
   }
   $: combinedRenderers = { ...defaultRenderers, ...renderers }
 </script>

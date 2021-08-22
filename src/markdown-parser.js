@@ -19,6 +19,7 @@ import {
   Html,
   Blockquote,
   Code,
+  Br,
 } from './renderers'
 
 export const defaultRenderers = {
@@ -44,10 +45,11 @@ export const defaultRenderers = {
   html: Html,
   blockquote: Blockquote,
   code: Code,
+  br: Br,
 }
 export const defaultOptions = {
   baseUrl: null,
-  breaks: false,
+  breaks: true,
   gfm: true,
   headerIds: true,
   headerPrefix: '',
