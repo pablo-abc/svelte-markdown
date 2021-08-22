@@ -49,7 +49,7 @@ export const defaultRenderers = {
 }
 export const defaultOptions = {
   baseUrl: null,
-  breaks: true,
+  breaks: false,
   gfm: true,
   headerIds: true,
   headerPrefix: '',
