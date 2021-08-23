@@ -140,6 +140,13 @@ As an example, if we have an `orderedlistitem`:
 Then numbers at the start of ordered list items would be colored blue. Bullets at the start of unordered list items
 would remain the default text color.
 
+### Inline Markdown
+To use [inline markdown](https://marked.js.org/using_advanced#inline), you can assigne prop `isInline` to the component.
+
+```sveltehtml
+<SvelteMarkdown {source} isInline={true} />
+```
+
 ## Developing
 
 Some tests have been added to the `tests` folder. You can clone this repo and create another svelte app and link it to this repo to try modifying it.
