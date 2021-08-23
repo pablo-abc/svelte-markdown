@@ -1,5 +1,5 @@
 <script>
-    export let text;
-    export let raw;
+    export let text; text;
+    export let raw; raw;
 </script>
 <slot />
