@@ -1,3 +1,4 @@
+import marked from 'marked/lib/marked.esm.js'
 import {
   Heading,
   Paragraph,
@@ -67,4 +68,4 @@ export const defaultOptions = {
   xhtml: false,
 }
 
-export { default as Lexer } from 'marked/src/Lexer'
+export const Lexer = marked.Lexer
