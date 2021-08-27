@@ -127,7 +127,7 @@ optional keys in the `renderers` option which can provide this:
 
 As an example, if we have an `orderedlistitem`:
 
-```sveltehtml
+```html
 <style>
     li::marker{
         color: blue;
@@ -141,10 +141,11 @@ Then numbers at the start of ordered list items would be colored blue. Bullets a
 would remain the default text color.
 
 ### Inline Markdown
-To use [inline markdown](https://marked.js.org/using_advanced#inline), you can assigne prop `isInline` to the component.
 
-```sveltehtml
-<SvelteMarkdown {source} isInline={true} />
+To use [inline markdown](https://marked.js.org/using_advanced#inline), you can assign the prop `isInline` to the component.
+
+```html
+<SvelteMarkdown {source} isInline />
 ```
 
 ## Developing
