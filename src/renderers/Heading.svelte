@@ -1,11 +1,12 @@
 <script>
   export let depth
   export let raw
+  export let text
   export let options
   export let slugger
 
   $: id = options.headerIds
-    ? options.headerPrefix + slugger.slug(raw.replace(/^#+/, ''))
+    ? options.headerPrefix + slugger.slug(text)
     : undefined
 </script>
 
