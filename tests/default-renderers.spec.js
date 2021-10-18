@@ -55,10 +55,36 @@ describe('testing default renderers', () => {
     expect(element).toHaveTextContent('link')
   })
 
-  test('renders a heading', () => {
-    render(SvelteMarkdown, { source: '# This is a title' })
+  describe('heading', () => {
+    test('renders a heading with id', () => {
+      render(SvelteMarkdown, { source: '# This is a title' })
 
-    expect(screen.getByRole('heading', { name: /This is a title/ })).toBeInTheDocument()
+      const element = screen.getByRole('heading', { name: /This is a title/ })
+      expect(element).toBeInTheDocument()
+      expect(element).toHaveAttribute('id', 'this-is-a-title')
+    })
+
+    test('renders a heading with id and preffix', () => {
+      render(SvelteMarkdown, { source: '# This is a title', options: { headerPrefix: 'test-' } })
+
+      const element = screen.getByRole('heading', { name: /This is a title/ })
+      expect(element).toHaveAttribute('id', 'test-this-is-a-title')
+    })
+
+    test('renders a heading with non-duplicate id', () => {
+      render(SvelteMarkdown, { source: '# This is a title\n\n## This is a title' })
+
+      const element = screen.getAllByRole('heading', { name: /This is a title/ })
+      expect(element[0]).toHaveAttribute('id', 'this-is-a-title')
+      expect(element[1]).toHaveAttribute('id', 'this-is-a-title-1')
+    })
+
+    test('renders a heading without id', () => {
+      render(SvelteMarkdown, { source: '# This is a title', options: { headerIds: false } })
+
+      const element = screen.getByRole('heading', { name: /This is a title/ })
+      expect(element).not.toHaveAttribute('id')
+    })
   })
 
   test('renders an image', () => {
