@@ -64,6 +64,14 @@ describe('testing default renderers', () => {
       expect(element).toHaveAttribute('id', 'this-is-a-title')
     })
 
+    test('renders a heading (alternative syntax)', () => {
+      render(SvelteMarkdown, { source: 'This is a title\n===' })
+
+      const element = screen.getByRole('heading', { name: /This is a title/ })
+      expect(element).toBeInTheDocument()
+      expect(element).toHaveAttribute('id', 'this-is-a-title')
+    })
+
     test('renders a heading with id and preffix', () => {
       render(SvelteMarkdown, { source: '# This is a title', options: { headerPrefix: 'test-' } })
 
