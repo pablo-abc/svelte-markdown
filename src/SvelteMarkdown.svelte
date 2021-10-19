@@ -5,12 +5,11 @@
   export let source = ''
   export let renderers = {}
   export let options = {}
-  export let isInline = false;
-
-  const slugger = new Slugger();
+  export let isInline = false
 
   let lexer;
   let tokens;
+  $: slugger = source ? new Slugger : undefined
   $: combinedOptions = { ...defaultOptions, ...options }
   $: {
     lexer = new Lexer(combinedOptions)
