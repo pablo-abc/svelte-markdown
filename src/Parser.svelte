@@ -4,12 +4,11 @@
   export let ordered = false
   export let renderers
   export let options
-  export let slugger
 </script>
 
 {#if !type}
   {#each tokens as token}
-    <svelte:self {...token} {renderers} {options} {slugger} />
+    <svelte:self {...token} {renderers} {options} />
   {/each}
 {:else}
   {#if renderers[type]}
@@ -49,7 +48,7 @@
         <svelte:component this={renderers.list} {ordered} {...$$restProps}>
           {#each $$restProps.items as item}
             <svelte:component this={renderers.orderedlistitem || renderers.listitem} {...item}>
-              <svelte:self tokens={item.tokens} {renderers} {options} {slugger} />
+              <svelte:self tokens={item.tokens} {renderers} {options} />
             </svelte:component>
           {/each}
         </svelte:component>
@@ -57,15 +56,15 @@
         <svelte:component this={renderers.list} {ordered} {...$$restProps}>
           {#each $$restProps.items as item}
             <svelte:component this={renderers.unorderedlistitem || renderers.listitem} {...item}>
-              <svelte:self tokens={item.tokens} {renderers} {options} {slugger} />
+              <svelte:self tokens={item.tokens} {renderers} {options} />
             </svelte:component>
           {/each}
         </svelte:component>
       {/if}
     {:else}
-      <svelte:component this={renderers[type]} {options} {slugger} {...$$restProps}>
+      <svelte:component this={renderers[type]} {options} {...$$restProps}>
         {#if tokens}
-          <svelte:self {tokens} {renderers} {options} {slugger} />
+          <svelte:self {tokens} {renderers} {options} />
         {:else}
           {$$restProps.raw}
         {/if}

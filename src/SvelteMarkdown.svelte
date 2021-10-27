@@ -21,7 +21,6 @@
 
 <Parser
   {tokens}
-  {slugger}
   renderers={combinedRenderers}
   options={combinedOptions}
 />
