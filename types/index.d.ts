@@ -71,14 +71,8 @@ type Props = {
    * Options for [marked](https://marked.js.org/using_advanced#options)
    */
   options?: MarkedConfig
-
-  /**
-   * Optional binding, to allow parent components to get raw token array
-   */
-  tokens?: any[]
   
 }
-
 export default class SvelteMarkdown extends SvelteComponentTyped<
   Props,
   {},
