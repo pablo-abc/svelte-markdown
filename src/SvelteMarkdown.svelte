@@ -20,7 +20,8 @@
   $: combinedRenderers = { ...defaultRenderers, ...renderers }
 
   setContext(key, {
-    slug: (val) => slugger ? slugger.slug(val) : ''
+    slug: (val) => slugger ? slugger.slug(val) : '',
+    getOptions: () => combinedOptions
   })
 </script>
 
