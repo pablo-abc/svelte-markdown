@@ -24,8 +24,4 @@
   })
 </script>
 
-<Parser
-  {tokens}
-  renderers={combinedRenderers}
-  options={combinedOptions}
-/>
+<Parser {tokens} renderers={combinedRenderers} />
