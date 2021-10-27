@@ -1,6 +1,7 @@
 <script>
+  import { setContext } from 'svelte'
   import Parser from './Parser.svelte'
-  import { Lexer, Slugger, defaultOptions, defaultRenderers } from './markdown-parser'
+  import { Lexer, Slugger, defaultOptions, defaultRenderers, key } from './markdown-parser'
 
   export let source = ''
   export let renderers = {}
@@ -17,6 +18,10 @@
     tokens = isInline?lexer.inlineTokens(source):lexer.lex(source)
   }
   $: combinedRenderers = { ...defaultRenderers, ...renderers }
+
+  setContext(key, {
+    slug: (val) => slugger ? slugger.slug(val) : ''
+  })
 </script>
 
 <Parser

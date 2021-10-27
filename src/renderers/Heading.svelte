@@ -1,11 +1,12 @@
 <script>
+  import { slug } from './slugger'
   export let depth
   export let raw
   export let text
   export let options
 
   $: id = options.headerIds
-    ? options.headerPrefix + slugger.slug(text)
+    ? options.headerPrefix + slug(text)
     : undefined
 </script>
 
