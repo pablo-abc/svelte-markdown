@@ -71,10 +71,16 @@ This would render something like
 </ul>
 <table>
   <thead>
-    <tr><th>And this is</th><th>A table</th></tr>
+    <tr>
+      <th>And this is</th>
+      <th>A table</th>
+    </tr>
   </thead>
   <tbody>
-    <tr><td>With two</td><td>columns</td></tr>
+    <tr>
+      <td>With two</td>
+      <td>columns</td>
+    </tr>
   </tbody>
 </table>
 ```
@@ -87,9 +93,28 @@ Just like with React Markdown, this package doesn't use `{@html ...}` unless you
 
 The SvelteMarkdown component accepts the following options:
 
-* `source` - *string* The Markdown source to be parsed.
-* `renderers` - *object (optional)* An object where the keys represent a node type and the value is a Svelte component. This object will be merged with the default renderers. For now you can check how the default renderers are written in the source code at `src/renderers`.
-* `options` - *object (optional)* An object containing [options for Marked](https://marked.js.org/using_advanced#options)
+- `source` - _string_ The Markdown source to be parsed.
+- `renderers` - _object (optional)_ An object where the keys represent a node type and the value is a Svelte component. This object will be merged with the default renderers. For now you can check how the default renderers are written in the source code at `src/renderers`.
+- `options` - _object (optional)_ An object containing [options for Marked](https://marked.js.org/using_advanced#options)
+
+## Events
+
+A `parsed` event will be fired when the final tokens have been calculated, allowing you to access the raw token array if needed for things like generating Table of Contents from headings.
+
+```html
+<script>
+  import SvelteMarkdown from 'svelte-markdown'
+
+  const source = `# This is a header`
+
+  function handleParsed(event) {
+    //access tokens via event.detail.tokens
+    console.log(event.detail.tokens);
+  }
+</script>
+
+<SvelteMarkdown {source} on:parsed={handleParsed}>
+```
 
 ## Available renderers
 
@@ -129,9 +154,9 @@ As an example, if we have an `orderedlistitem`:
 
 ```html
 <style>
-    li::marker{
-        color: blue;
-    }
+  li::marker {
+    color: blue;
+  }
 </style>
 
 <li><slot></slot></li>
