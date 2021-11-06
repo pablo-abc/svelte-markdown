@@ -78,6 +78,6 @@ type Props = {
 }
 export default class SvelteMarkdown extends SvelteComponentTyped<
   Props,
-  { parsed: CustomEvent<TokensList> },
+  { parsed: CustomEvent<{ tokens: TokensList }> },
   { default: {} }
 > {}
