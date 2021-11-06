@@ -1,4 +1,8 @@
-import type { MarkedExtension as MarkedConfig, Tokens } from 'marked'
+import type {
+  MarkedExtension as MarkedConfig,
+  Tokens,
+  TokensList,
+} from 'marked'
 import type { SvelteComponentTyped } from 'svelte'
 
 type MarkedRendererProps<
@@ -71,10 +75,9 @@ type Props = {
    * Options for [marked](https://marked.js.org/using_advanced#options)
    */
   options?: MarkedConfig
-  
 }
 export default class SvelteMarkdown extends SvelteComponentTyped<
   Props,
-  {},
+  { parsed: CustomEvent<TokensList> },
   { default: {} }
 > {}
