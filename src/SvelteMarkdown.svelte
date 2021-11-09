@@ -1,7 +1,8 @@
 <script>
   import { setContext } from 'svelte'
   import Parser from './Parser.svelte'
-  import { Lexer, Slugger, defaultOptions, defaultRenderers, key } from './markdown-parser'
+  import { Lexer, Slugger, defaultOptions, defaultRenderers } from './markdown-parser'
+  import { key } from './context'
   import { createEventDispatcher, onMount } from 'svelte'
 
   export let source = ''

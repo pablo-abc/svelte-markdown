@@ -1,11 +1,11 @@
 <script>
   import { getContext } from 'svelte'
-  import * as MarkdownParser from '../markdown-parser'
+  import { key } from '../context'
   export let depth
   export let raw
   export let text
 
-  const { slug, getOptions } = getContext(MarkdownParser.key)
+  const { slug, getOptions } = getContext(key)
   const options = getOptions()
 
   $: id = options.headerIds
