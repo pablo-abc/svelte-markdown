@@ -69,3 +69,4 @@ export const defaultOptions = {
 }
 
 export const Lexer = marked.Lexer
+export const Slugger = marked.Slugger
