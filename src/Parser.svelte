@@ -1,6 +1,8 @@
 <script>
   export let type = undefined
   export let tokens = undefined
+  export let header = undefined
+  export let rows = undefined
   export let ordered = false
   export let renderers
 </script>
@@ -15,19 +17,19 @@
       <svelte:component this={renderers.table}>
         <svelte:component this={renderers.tablehead}>
           <svelte:component this={renderers.tablerow}>
-            {#each tokens.header as cells, i}
+            {#each header as headerItem, i}
               <svelte:component
                 this={renderers.tablecell}
                 header={true}
                 align={$$restProps.align[i] || 'center'}
                 >
-                <svelte:self tokens={cells} {renderers} />
+                <svelte:self tokens={headerItem.tokens} {renderers} />
               </svelte:component>
             {/each}
           </svelte:component>
         </svelte:component>
         <svelte:component this={renderers.tablebody}>
-          {#each tokens.cells as row}
+          {#each rows as row}
             <svelte:component this={renderers.tablerow}>
               {#each row as cells, i}
                 <svelte:component
@@ -35,7 +37,7 @@
                   header={false}
                   align={$$restProps.align[i] || 'center'}
                   >
-                  <svelte:self tokens={cells} {renderers} />
+                  <svelte:self tokens={cells.tokens} {renderers} />
                 </svelte:component>
               {/each}
             </svelte:component>

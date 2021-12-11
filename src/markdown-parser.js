@@ -1,4 +1,5 @@
-import marked from 'marked/lib/marked.esm.js'
+export { Lexer, Slugger } from 'marked'
+
 import {
   Heading,
   Paragraph,
@@ -67,6 +68,3 @@ export const defaultOptions = {
   tokenizer: null,
   xhtml: false,
 }
-
-export const Lexer = marked.Lexer
-export const Slugger = marked.Slugger
