@@ -21,12 +21,12 @@
     "@babel/preset-env": "^7.12.16",
     "@rollup/plugin-commonjs": "17.1.0",
     "@rollup/plugin-node-resolve": "^11.2.0",
-    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/svelte": "^3.0.3",
-    "babel-jest": "^26.6.3",
+    "babel-jest": "^27.4.5",
     "eslint": "^7.20.0",
     "eslint-plugin-svelte3": "^3.1.0",
-    "jest": "^26.6.3",
+    "jest": "^27.4.5",
     "prettier": "^2.2.1",
     "rollup": "^2.39.0",
     "rollup-plugin-analyzer": "^4.0.0",
@@ -46,6 +46,7 @@
   },
   "types": "./types/index.d.ts",
   "jest": {
+    "testEnvironment": "jsdom",
     "transform": {
       "^.+\\.js$": "babel-jest",
       "^.+\\.svelte$": "svelte-jester"
