@@ -75,6 +75,11 @@ type Props = {
    * Options for [marked](https://marked.js.org/using_advanced#options)
    */
   options?: MarkedConfig
+
+  /**
+   * To use [inline markdown](https://marked.js.org/using_advanced#inline), you can assign the prop `isInline` to the component.
+   */
+  isInline?: boolean
 }
 export default class SvelteMarkdown extends SvelteComponentTyped<
   Props,
