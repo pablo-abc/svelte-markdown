@@ -1,13 +1,14 @@
 <script>
   import { setContext, createEventDispatcher, onMount } from 'svelte'
   import Parser from './Parser.svelte'
-  import { Lexer, Slugger, defaultOptions, defaultRenderers } from './markdown-parser'
+  import { Lexer, Slugger, defaultOptions, defaultRenderers, marked } from './markdown-parser'
   import { key } from './context'
 
   export let source = ''
   export let renderers = {}
   export let options = {}
   export let isInline = false
+  export let use = {}
 
   const dispatch = createEventDispatcher();
 
@@ -18,7 +19,10 @@
   $: slugger = source ? new Slugger : undefined
   $: combinedOptions = { ...defaultOptions, ...options }
   $: {
-    lexer = new Lexer(combinedOptions)
+    marked.setOptions(combinedOptions)
+    marked.use(use)
+
+    lexer = new Lexer()
 
     tokens = isInline ? lexer.inlineTokens(source) : lexer.lex(source)
 

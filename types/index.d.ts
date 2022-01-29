@@ -1,4 +1,5 @@
 import type {
+  marked,
   MarkedExtension as MarkedConfig,
   Tokens,
   TokensList,
@@ -70,6 +71,11 @@ type Props = {
    * object will be merged with the default renderers.
    */
   renderers?: Partial<Renderers>
+
+  /**
+   * Parameters for the function [marked.use](https://marked.js.org/using_pro#use)
+   */
+  use?: Parameters<typeof marked.use>
 
   /**
    * Options for [marked](https://marked.js.org/using_advanced#options)
