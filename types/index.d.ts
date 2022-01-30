@@ -75,7 +75,7 @@ type Props = {
   /**
    * Parameters for the function [marked.use](https://marked.js.org/using_pro#use)
    */
-  use?: Parameters<typeof marked.use>
+  use?: Omit<marked.MarkedExtension, 'renderer'>[]
 
   /**
    * Options for [marked](https://marked.js.org/using_advanced#options)
