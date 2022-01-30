@@ -96,6 +96,7 @@ The SvelteMarkdown component accepts the following options:
 - `source` - _string_ The Markdown source to be parsed.
 - `renderers` - _object (optional)_ An object where the keys represent a node type and the value is a Svelte component. This object will be merged with the default renderers. For now you can check how the default renderers are written in the source code at `src/renderers`.
 - `options` - _object (optional)_ An object containing [options for Marked](https://marked.js.org/using_advanced#options)
+- `use` - _object (optional)_ An object containing [extensions for Marked]([marked.use](https://marked.js.org/using_pro#use)) 
 
 ## Events
 
