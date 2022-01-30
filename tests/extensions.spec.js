@@ -18,19 +18,14 @@ describe('testing extensions', () => {
         return src.match(/\[\[/).index
       },
       tokenizer(src) {
-        const rule = /^\[\[test\s+([^\]]*)\]\]/
+        const rule = /^\[\[test(?:(?=.*?\svalue="(.*?)".*?|.*)(?=.*?\smessage="(.*?)(?<!\\)".*?|.*).*?|\s*)\]\]/
         const match = rule.exec(src)
         if (match) {
-          const options = match[1]
-          const valueRule = /value="([^"]*)"/
-          const messageRule = /message="([^"]*)"/
-          const value = valueRule.exec(options)
-          const message = messageRule.exec(options)
           return {
             type: 'test',
             raw: match[0],
-            value: value ? value[1] : undefined,
-            message: message ? message[1] : undefined,
+            value: match[1],
+            message: match[2],
           }
         }
       },
