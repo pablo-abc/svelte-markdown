@@ -12,6 +12,7 @@
     "types"
   ],
   "license": "MIT",
+  "author": "Pablo Berganza <pablo@berganza.dev>",
   "repository": "github:pablo-abc/svelte-markdown",
   "homepage": "https://github.com/pablo-abc/svelte-markdown",
   "scripts": {

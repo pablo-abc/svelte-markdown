@@ -173,6 +173,18 @@ To use [inline markdown](https://marked.js.org/using_advanced#inline), you can a
 <SvelteMarkdown {source} isInline />
 ```
 
+## HTML rendering
+
+While the most common flavours of markdown let you use HTML in markdown paragraphs, due to how Svelte handles plain HTML it is currently not possible to do this with this package. A paragraph must be either _all_ HTML or _all_ markdown.
+
+```markdown
+This is a **markdown** paragraph.
+
+<p>This is an <strong>HTML</strong> paragraph</p>
+```
+
+Note that the HTML paragraph must be enclosed within `<p>` tags.
+
 ## Developing
 
 Some tests have been added to the `tests` folder. You can clone this repo and create another svelte app and link it to this repo to try modifying it.
