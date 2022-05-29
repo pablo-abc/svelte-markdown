@@ -89,13 +89,46 @@ This would render something like
 
 Just like with React Markdown, this package doesn't use `{@html ...}` unless you need to render HTML.
 
-## Options
+## Props
 
-The SvelteMarkdown component accepts the following options:
+The SvelteMarkdown component accepts the following props:
 
 - `source` - _string_ The Markdown source to be parsed.
 - `renderers` - _object (optional)_ An object where the keys represent a node type and the value is a Svelte component. This object will be merged with the default renderers. For now you can check how the default renderers are written in the source code at `src/renderers`.
 - `options` - _object (optional)_ An object containing [options for Marked](https://marked.js.org/using_advanced#options)
+
+## Renderers
+
+To create custom renderer for a element you just have to create a Svelte componente with the default props ([you can check they here](https://marked.js.org/using_pro#renderer)), for example:
+
+_`ImageComponent.svelte`_
+```svelte
+<script>
+  export let href = "";
+  export let title = undefined;
+  export let text = "";
+</script>
+
+<img
+  src={href}
+  {title}
+  alt={text}
+/>
+```
+
+So you can import the component and pass on `renderers` props:
+
+```svelte
+<script>
+  import SvelteMarkdown from "svelte-markdown";
+  import ImageComponent from "./renderers/ImageComponent.svelte";
+  export let content;
+</script>
+
+<SvelteMarkdown source={content} 
+  renderers={{ image: ImageComponent }} 
+/>
+```
 
 ## Events
 
