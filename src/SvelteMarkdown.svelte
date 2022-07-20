@@ -4,7 +4,7 @@
   import { Lexer, Slugger, defaultOptions, defaultRenderers } from './markdown-parser'
   import { key } from './context'
 
-  export let source = ''
+  export let source = []
   export let renderers = {}
   export let options = {}
   export let isInline = false
@@ -15,9 +15,12 @@
   let lexer;
   let mounted;
 
+  $: preprocessed = Array.isArray(source)
   $: slugger = source ? new Slugger : undefined
   $: combinedOptions = { ...defaultOptions, ...options }
-  $: {
+  $: if (preprocessed) {
+    tokens = source
+  } else {
     lexer = new Lexer(combinedOptions)
 
     tokens = isInline ? lexer.inlineTokens(source) : lexer.lex(source)
@@ -31,7 +34,7 @@
     slug: (val) => slugger ? slugger.slug(val) : '',
     getOptions: () => combinedOptions
   })
-  $: mounted && dispatch('parsed', { tokens })
+  $: mounted && !preprocessed && dispatch('parsed', { tokens })
 
   onMount(() => {
     mounted = true
