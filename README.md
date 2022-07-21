@@ -93,9 +93,35 @@ Just like with React Markdown, this package doesn't use `{@html ...}` unless you
 
 The SvelteMarkdown component accepts the following options:
 
-- `source` - _string_ The Markdown source to be parsed.
+- `source` - _string_ or _array_ The Markdown source to be parsed, or an array of tokens to be rendered directly.
 - `renderers` - _object (optional)_ An object where the keys represent a node type and the value is a Svelte component. This object will be merged with the default renderers. For now you can check how the default renderers are written in the source code at `src/renderers`.
 - `options` - _object (optional)_ An object containing [options for Marked](https://marked.js.org/using_advanced#options)
+
+## Rendering From Tokens
+
+For greater flexibility, an array of tokens may be given as `source`, in which case parsing is skipped and the tokens will be rendered directly. This alows you to generate and transform the tokens freely beforehand. Example:
+
+```html
+<script>
+  import SvelteMarkdown from 'svelte-markdown'
+  import { marked } from 'marked'
+
+  const tokens = marked.lexer('this is an **example**')
+
+  marked.walkTokens(tokens, token=> {
+    if (token.type == 'strong') token.type = 'em'
+    token.raw = token.raw.toUpperCase()
+  })
+</script>
+
+<SvelteMarkdown source={tokens} />
+```
+
+This will render the following:
+
+```html
+<p>THIS IS AN <em>EXAMPLE</em></p>
+```
 
 ## Events
 
