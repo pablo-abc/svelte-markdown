@@ -101,7 +101,7 @@ The SvelteMarkdown component accepts the following options:
 
 For greater flexibility, an array of tokens may be given as `source`, in which case parsing is skipped and the tokens will be rendered directly. This alows you to generate and transform the tokens freely beforehand. Example:
 
-```svelte
+```html
 <script>
   import SvelteMarkdown from 'svelte-markdown'
   import { marked } from 'marked'
