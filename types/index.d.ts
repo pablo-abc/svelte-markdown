@@ -63,7 +63,7 @@ type Props = {
   /**
    * The Markdown source to be parsed, or an array of tokens to be rendered directly.
    */
-  source: string|TokensList
+  source: string | TokensList
 
   /**
    * An object where the keys represent a node type and the value is a Svelte component. This
