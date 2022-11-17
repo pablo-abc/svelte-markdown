@@ -1,6 +1,6 @@
-module.exports = {
+export default {
   parserOptions: {
-    ecmaVersion: 2019,
+    ecmaVersion: 2022,
     sourceType: 'module',
   },
   env: {
@@ -44,4 +44,4 @@ module.exports = {
       },
     ],
   },
-};
+}
