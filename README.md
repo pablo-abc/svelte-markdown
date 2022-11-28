@@ -99,7 +99,7 @@ The SvelteMarkdown component accepts the following props:
 
 ## Renderers
 
-To create custom renderer for a element you just have to create a Svelte componente with the default props ([you can check they here](https://marked.js.org/using_pro#renderer)), for example:
+To create custom renderer for an element, you just have to create a Svelte component with the default props ([you can check them here](https://marked.js.org/using_pro#renderer)), for example:
 
 _`ImageComponent.svelte`_
 ```svelte
