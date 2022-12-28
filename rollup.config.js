@@ -4,11 +4,8 @@ import svelte from 'rollup-plugin-svelte'
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import terser from '@rollup/plugin-terser'
-import { readFile } from 'fs/promises'
 
-const pkg = await readFile('./package.json', {
-  encoding: 'utf-8',
-}).then(JSON.parse)
+import pkg from './package.json' assert { type: 'json' }
 
 const production = !process.env.ROLLUP_WATCH
 
