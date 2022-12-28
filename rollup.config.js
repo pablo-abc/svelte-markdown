@@ -39,8 +39,8 @@ export default {
     resolve(),
     commonjs(),
 
-    // If we're building for production (npm run build
-    // instead of npm run dev), minify
+    // If we're building for production (yarn build
+    // instead of yarn dev), minify
     production && terser(),
     production && analyze(),
     production && bundleSize(),
