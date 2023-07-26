@@ -7,11 +7,12 @@ module.exports = {
     es6: true,
     browser: true,
   },
-  plugins: ['svelte3'],
+  plugins: [],
+  extends: ['plugin:svelte/recommended'],
   overrides: [
     {
       files: ['**/*.svelte'],
-      processor: 'svelte3/svelte3',
+      parser: "svelte-eslint-parser",
     },
   ],
   rules: {
@@ -44,4 +45,4 @@ module.exports = {
       },
     ],
   },
-};
+}
