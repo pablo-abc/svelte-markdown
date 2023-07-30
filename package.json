@@ -40,12 +40,12 @@
     "sirv-cli": "^1.0.11",
     "svelte": "^4.0.5",
     "svelte-eslint-parser": "^0.32.1",
-    "vite": "^4.4.4",
+    "vite": "^4.4.7",
     "vitest": "^0.33.0"
   },
   "dependencies": {
-    "@types/marked": "^4.0.1",
-    "marked": "^4.0.10"
+    "@types/marked": "^5.0.1",
+    "marked": "^5.1.2"
   },
   "peerDependencies": {
     "svelte": "^4.0.0"
