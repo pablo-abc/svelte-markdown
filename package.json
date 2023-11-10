@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "@types/marked": "^5.0.1",
-    "marked": "^5.1.2"
+    "marked": "^9.1.6"
   },
   "peerDependencies": {
     "svelte": "^4.0.0"
