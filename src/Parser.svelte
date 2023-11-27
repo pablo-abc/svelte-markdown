@@ -8,7 +8,7 @@
   export let ordered = false
   export let renderers
 
-  supressWarnings();
+  supressWarnings(renderers);
 </script>
 
 {#if !type}
