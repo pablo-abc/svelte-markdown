@@ -6,6 +6,13 @@
   "module": "dist/sveltemarkdown.es.js",
   "jsnext:main": "dist/sveltemarkdown.es.js",
   "svelte": "src/index.js",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "svelte": "./src/index.js"
+    },
+    "./package.json": "./package.json"
+  },
   "type": "module",
   "files": [
     "dist",
