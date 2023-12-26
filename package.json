@@ -4,7 +4,7 @@
   "version": "0.4.1",
   "type": "module",
   "types": "types/index.d.ts",
-  "svelte": "src/index.js",
+  "svelte": "./src/index.js",
   "exports": {
     ".": {
       "types": "./types/index.d.ts",
