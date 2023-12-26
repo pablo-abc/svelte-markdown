@@ -2,10 +2,9 @@
   "name": "svelte-markdown",
   "description": "A markdown renderer for Svelte",
   "version": "0.4.1",
-  "main": "dist/sveltemarkdown.js",
-  "module": "dist/sveltemarkdown.es.js",
-  "jsnext:main": "dist/sveltemarkdown.es.js",
-  "svelte": "src/index.js",
+  "type": "module",
+  "types": "types/index.d.ts",
+  "svelte": "./src/index.js",
   "exports": {
     ".": {
       "types": "./types/index.d.ts",
@@ -13,20 +12,19 @@
     },
     "./package.json": "./package.json"
   },
-  "type": "module",
   "files": [
-    "dist",
     "src",
     "types"
   ],
   "license": "MIT",
   "author": "Pablo Berganza <pablo@berganza.dev>",
-  "repository": "github:pablo-abc/svelte-markdown",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pablo-abc/svelte-markdown.git"
+  },
   "homepage": "https://github.com/pablo-abc/svelte-markdown",
   "scripts": {
-    "build": "vite build",
-    "dev": "vite build --watch",
-    "test": "vitest run",
+    "test": "vitest run && publint --strict",
     "test:watch": "vitest watch"
   },
   "devDependencies": {
@@ -37,10 +35,7 @@
     "eslint-plugin-svelte": "^2.32.2",
     "jsdom": "^22.1.0",
     "prettier": "^2.2.1",
-    "rollup-plugin-analyzer": "^4.0.0",
-    "rollup-plugin-filesize": "^10.0.0",
-    "rollup-plugin-terser": "^7.0.2",
-    "sirv-cli": "^1.0.11",
+    "publint": "^0.2.7",
     "svelte": "^4.0.5",
     "svelte-eslint-parser": "^0.32.1",
     "vite": "^4.4.7",
@@ -52,6 +47,5 @@
   },
   "peerDependencies": {
     "svelte": "^4.0.0"
-  },
-  "types": "./types/index.d.ts"
+  }
 }
