@@ -1,14 +1,10 @@
 <script>
-  import { supressWarnings } from './supress-warnings'
-
   export let type = undefined
   export let tokens = undefined
   export let header = undefined
   export let rows = undefined
   export let ordered = false
   export let renderers
-
-  supressWarnings();
 </script>
 
 {#if !type}
