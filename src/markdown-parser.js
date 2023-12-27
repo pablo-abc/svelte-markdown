@@ -1,4 +1,5 @@
-export { Lexer, Slugger } from 'marked'
+export { lexer, parseInline } from 'marked'
+export { Slugger } from './Slugger'
 
 import {
   Heading,

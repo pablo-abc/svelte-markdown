@@ -1,8 +1,8 @@
 <script>
   import { setContext, createEventDispatcher, onMount } from 'svelte'
   import Parser from './Parser.svelte'
-  import { Lexer, Slugger, defaultOptions, defaultRenderers } from './markdown-parser'
   import { key } from './context'
+  import { Slugger, defaultOptions, defaultRenderers, lexer, parseInline } from './markdown-parser'
 
   export let source = []
   export let renderers = {}
@@ -12,7 +12,6 @@
   const dispatch = createEventDispatcher();
 
   let tokens;
-  let lexer;
   let mounted;
 
   $: preprocessed = Array.isArray(source)
@@ -21,9 +20,7 @@
   $: if (preprocessed) {
     tokens = source
   } else {
-    lexer = new Lexer(combinedOptions)
-
-    tokens = isInline ? lexer.inlineTokens(source) : lexer.lex(source)
+    tokens = isInline ? parseInline(source) : lexer(source)
 
     dispatch('parsed', { tokens })
   }
