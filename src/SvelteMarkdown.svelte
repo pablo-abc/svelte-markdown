@@ -1,7 +1,7 @@
 <script>
   import { setContext, createEventDispatcher, onMount } from 'svelte'
   import Parser from './Parser.svelte'
-  import { Lexer, Slugger, defaultOptions, defaultRenderers } from './markdown-parser'
+  import { Lexer, Slugger, defaultOptions, defaultRenderers, marked } from './markdown-parser'
   import { key } from './context'
 
   export let source = []
@@ -24,6 +24,10 @@
     lexer = new Lexer(combinedOptions)
 
     tokens = isInline ? lexer.inlineTokens(source) : lexer.lex(source)
+
+    if (combinedOptions.walkTokens) {
+      marked.walkTokens(tokens, combinedOptions.walkTokens)
+    }
 
     dispatch('parsed', { tokens })
   }
