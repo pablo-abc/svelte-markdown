@@ -1,5 +1,5 @@
 <script>
-  export let raw
+  export let text
 </script>
 
-<code>{raw.replace(/`/g, '')}</code>
+<code>{text}</code>
