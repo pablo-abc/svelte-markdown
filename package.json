@@ -51,7 +51,7 @@
     "marked": "^5.1.2"
   },
   "peerDependencies": {
-    "svelte": "^4.0.0"
+    "svelte": "^4.0.0 || ^5.0.0"
   },
   "types": "./types/index.d.ts"
 }
