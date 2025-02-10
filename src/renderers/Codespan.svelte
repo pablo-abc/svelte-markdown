@@ -1,5 +1,5 @@
 <script>
-  export let raw
+  let { raw } = $props();
 </script>
 
 <code>{raw.replace(/`/g, '')}</code>

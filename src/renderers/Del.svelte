@@ -1,1 +1,11 @@
-<del><slot></slot></del>
+<script>
+	/**
+	 * @typedef {Object} Props
+	 * @property {import('svelte').Snippet} [children]
+	 */
+
+	/** @type {Props} */
+	let { children } = $props();
+</script>
+
+<del>{@render children?.()}</del>

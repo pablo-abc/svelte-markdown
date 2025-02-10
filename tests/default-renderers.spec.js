@@ -1,6 +1,8 @@
-import '@testing-library/jest-dom/extend-expect'
 import { describe, test, expect } from 'vitest'
 import { render, screen } from '@testing-library/svelte'
+// import '@testing-library/jest-dom/extend-expect'
+// import '@testing-library/jest-dom/vitest'
+
 import SvelteMarkdown from '../src/SvelteMarkdown.svelte'
 
 describe('testing default renderers', () => {

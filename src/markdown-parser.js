@@ -1,5 +1,3 @@
-export { Lexer, Slugger } from 'marked'
-
 import {
   Heading,
   Paragraph,

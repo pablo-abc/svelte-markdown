@@ -1,10 +1,9 @@
 <script>
-  export let ordered
-  export let start
+  let { ordered, start, children } = $props();
 </script>
 
 {#if ordered}
-  <ol {start}><slot></slot></ol>
+  <ol {start}>{@render children?.()}</ol>
 {:else}
-  <ul><slot></slot></ul>
+  <ul>{@render children?.()}</ul>
 {/if}

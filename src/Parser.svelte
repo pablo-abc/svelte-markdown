@@ -1,79 +1,95 @@
 <script>
+  import Parser from './Parser.svelte';
   import { supressWarnings } from './supress-warnings'
 
-  export let type = undefined
-  export let tokens = undefined
-  export let header = undefined
-  export let rows = undefined
-  export let ordered = false
-  export let renderers
+  /**
+   * @typedef {Object} Props
+   * @property {any} [type]
+   * @property {any} [tokens]
+   * @property {any} [header]
+   * @property {any} [rows]
+   * @property {boolean} [ordered]
+   * @property {any} renderers
+   */
+
+  /** @type {Props & { [key: string]: any }} */
+  let {
+    type = undefined,
+    tokens = undefined,
+    header = undefined,
+    rows = undefined,
+    ordered = false,
+    renderers,
+    ...rest
+  } = $props();
 
   supressWarnings();
 </script>
 
 {#if !type}
   {#each tokens as token}
-    <svelte:self {...token} {renderers} />
+    <Parser {...token} {renderers} />
   {/each}
 {:else}
   {#if renderers[type]}
     {#if type === 'table'}
-      <svelte:component this={renderers.table}>
-        <svelte:component this={renderers.tablehead}>
-          <svelte:component this={renderers.tablerow}>
+      <renderers.table>
+        <renderers.tablehead>
+          <renderers.tablerow>
             {#each header as headerItem, i}
-              <svelte:component
-                this={renderers.tablecell}
+              <renderers.tablecell
                 header={true}
-                align={$$restProps.align[i] || 'center'}
+                align={rest.align[i] || 'center'}
                 >
-                <svelte:self tokens={headerItem.tokens} {renderers} />
-              </svelte:component>
+                <Parser tokens={headerItem.tokens} {renderers} />
+              </renderers.tablecell>
             {/each}
-          </svelte:component>
-        </svelte:component>
-        <svelte:component this={renderers.tablebody}>
+          </renderers.tablerow>
+        </renderers.tablehead>
+        <renderers.tablebody>
           {#each rows as row}
-            <svelte:component this={renderers.tablerow}>
+            <renderers.tablerow>
               {#each row as cells, i}
-                <svelte:component
-                  this={renderers.tablecell}
+                <renderers.tablecell
                   header={false}
-                  align={$$restProps.align[i] || 'center'}
+                  align={rest.align[i] || 'center'}
                   >
-                  <svelte:self tokens={cells.tokens} {renderers} />
-                </svelte:component>
+                  <Parser tokens={cells.tokens} {renderers} />
+                </renderers.tablecell>
               {/each}
-            </svelte:component>
+            </renderers.tablerow>
           {/each}
-        </svelte:component>
-      </svelte:component>
+        </renderers.tablebody>
+      </renderers.table>
     {:else if type === 'list'}
       {#if ordered}
-        <svelte:component this={renderers.list} {ordered} {...$$restProps}>
-          {#each $$restProps.items as item}
-            <svelte:component this={renderers.orderedlistitem || renderers.listitem} {...item}>
-              <svelte:self tokens={item.tokens} {renderers} />
-            </svelte:component>
+        <renderers.list {ordered} {...rest}>
+          {#each rest.items as item}
+            {@const SvelteComponent = renderers.orderedlistitem || renderers.listitem}
+            <SvelteComponent {...item}>
+              <Parser tokens={item.tokens} {renderers} />
+            </SvelteComponent>
           {/each}
-        </svelte:component>
+        </renderers.list>
       {:else}
-        <svelte:component this={renderers.list} {ordered} {...$$restProps}>
-          {#each $$restProps.items as item}
-            <svelte:component this={renderers.unorderedlistitem || renderers.listitem} {...item}>
-              <svelte:self tokens={item.tokens} {renderers} />
-            </svelte:component>
+        <renderers.list {ordered} {...rest}>
+          {#each rest.items as item}
+            {@const SvelteComponent_1 = renderers.unorderedlistitem || renderers.listitem}
+            <SvelteComponent_1 {...item}>
+              <Parser tokens={item.tokens} {renderers} />
+            </SvelteComponent_1>
           {/each}
-        </svelte:component>
+        </renderers.list>
       {/if}
     {:else}
-      <svelte:component this={renderers[type]} {...$$restProps}>
+      {@const SvelteComponent_2 = renderers[type]}
+      <SvelteComponent_2 {...rest}>
         {#if tokens}
-          <svelte:self {tokens} {renderers} />
+          <Parser {tokens} {renderers} />
         {:else}
-          {$$restProps.raw}
+          {rest.raw}
         {/if}
-      </svelte:component>
+      </SvelteComponent_2>
     {/if}
   {/if}
 {/if}

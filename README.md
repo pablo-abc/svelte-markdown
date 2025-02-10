@@ -1,33 +1,36 @@
 # Svelte Markdown
 
-[![Tests](https://github.com/pablo-abc/svelte-markdown/workflows/Tests/badge.svg?branch=master)](https://github.com/pablo-abc/svelte-markdown/actions?query=workflow%3ATests)
-[![npm](https://img.shields.io/npm/v/svelte-markdown)](https://www.npmjs.com/package/svelte-markdown)
-[![npm](https://img.shields.io/npm/dw/svelte-markdown)](https://www.npmjs.com/package/svelte-markdown)
-![NPM](https://img.shields.io/npm/l/svelte-markdown)
+[![Tests](https://github.com/ildella/svelte-marked/workflows/Tests/badge.svg?branch=master)](https://github.com/ildella/svelte-marked/actions?query=workflow%3ATests)
+[![npm](https://img.shields.io/npm/v/svelte-marked)](https://www.npmjs.com/package/svelte-marked)
+[![npm](https://img.shields.io/npm/dw/svelte-marked)](https://www.npmjs.com/package/svelte-marked)
+![NPM](https://img.shields.io/npm/l/svelte-marked)
 
-A markdown parser that renders into Svelte Components. Inspired by [ReactMarkdown](https://github.com/remarkjs/react-markdown).
+A markdown parser that renders into Svelte Components. Forked from [svelte-markdown](https://github.com/pablo-abc/svelte-markdown/pulls) cause it was not merging PRs or upadting the project since December 2023. 
+
+This is the same code as `svelte-markdown` with up-to-date dependencies and removed deprecated dependencies. It keeps using [marked](https://github.com/markedjs/marked/).
 
 ## Installation
 
-You can install it with
+Install it with npm
 
 ```console
-$ npm i -S svelte-markdown
+$ npm i -S svelte-marked
 ```
 
-If you use npm or if you prefer yarn
+or yarn
 
 ```console
-$ yarn add svelte-markdown
-```
+$ yarn add svelte-marked
 
-If you're using Sapper you might need to install it as a dev dependency.
+## With SvelteKit add it as a dev dependency
+$ yarn add -D svelte-marked
+```
 
 ## Usage
 
 ```html
 <script>
-  import SvelteMarkdown from 'svelte-markdown'
+  import SvelteMarkdown from 'svelte-marked'
   const source = `
   # This is a header
 
@@ -120,7 +123,7 @@ So you can import the component and pass to the `renderers` props:
 
 ```svelte
 <script>
-  import SvelteMarkdown from "svelte-markdown";
+  import SvelteMarkdown from "svelte-marked";
   import ImageComponent from "./renderers/ImageComponent.svelte";
   export let content;
 </script>
@@ -136,7 +139,7 @@ For greater flexibility, an array of tokens may be given as `source`, in which c
 
 ```html
 <script>
-  import SvelteMarkdown from 'svelte-markdown'
+  import SvelteMarkdown from 'svelte-marked'
   import { marked } from 'marked'
 
   const tokens = marked.lexer('this is an **example**')
@@ -162,7 +165,7 @@ A `parsed` event will be fired when the final tokens have been calculated, allow
 
 ```html
 <script>
-  import SvelteMarkdown from 'svelte-markdown'
+  import SvelteMarkdown from 'svelte-marked'
 
   const source = `# This is a header`
 
@@ -259,7 +262,7 @@ $ yarn dev
 This will watch all changes and make the project linkable. Now on the app you created you can link it with:
 
 ```console
-$ yarn link svelte-markdown
+$ yarn link svelte-marked
 ```
 
 And then import it like in the example above.
@@ -268,6 +271,6 @@ As of now the only external dependency of this project is `marked`.
 
 ## Related
 
-- [ReactMarkdown](https://github.com/remarkjs/react-markdown) - React library to render markdown using React components. Inspiration for this library.
 - [Svelte](https://svelte.dev) - JavaScript front-end framework.
 - [Marked](https://marked.js.org/) - Markdown parser
+- [ReactMarkdown](https://github.com/remarkjs/react-markdown) - React library to render markdown using React components. Inspiration for this library.
